@@ -11,7 +11,7 @@ let photoSize = {
 let stopTransferPhoto = () => {};
 
 // navigator.mediaDevices.getUserMedia({video: {facingMode: { exact: "environment" }}})
-navigator.mediaDevices.getUserMedia({video: {facingMode: { exact: "environment" }}})
+navigator.mediaDevices.getUserMedia({video: true})
     .then(mediaStream => {
         const video = document.querySelector('video');
         video.srcObject = mediaStream;
@@ -75,27 +75,6 @@ function transferVideo() {
     let timeout = null;
     let q = 0;
     let imageMap = convertToHex(imageData);
-    // imageMap = [
-    //     [0,0, "000000"],
-    //     [0,0, "000000"],
-    //     [0,0, "000000"],
-    //     [0,0, "111111"],
-    //     [0,0, "222222"],
-    //     [0,0, "333333"],
-    //     [0,0, "444444"],
-    //     [0,0, "555555"],
-    //     [0,0, "666666"],
-    //     [0,0, "777777"],
-    //     [0,0, "888888"],
-    //     [0,0, "999999"],
-    //     [0,0, "aaaaaa"],
-    //     [0,0, "bbbbbb"],
-    //     [0,0, "cccccc"],
-    //     [0,0, "dddddd"],
-    //     [0,0, "eeeeee"],
-    //     [0,0, "ffffff"]
-    // ]; 
-
     const transfer = (point, index, q) => {
         let duration = clockDuration;
         if(point === imageMap.length) {
